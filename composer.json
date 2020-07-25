@@ -1,0 +1,23 @@
+{
+    "name": "0.0.1/elements_of_reusable_object-oriented_software_php",
+    "description": "Implementation of design patterns in php.",
+    "require": {
+        "php": ">=5.6",
+        "tightenco/collect": "^7.19"
+    },
+    "authors": [
+        {
+            "name": "Whallas Pimentel Bezerra",
+            "email": "whallaspimnmetel@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require-dev": {
+        "psy/psysh": "^0.10.4"
+    }
+}
