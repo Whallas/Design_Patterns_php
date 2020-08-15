@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\StructuralPatterns\Composite\Sample;
-
 
 use Tightenco\Collect\Support\Collection;
 
@@ -11,12 +9,12 @@ class CompositeEquipment extends Equipment
     /**
      * @var Collection|Equipment[]
      */
-    public $_equipment;
+    public $equipment;
 
     public function __construct($name)
     {
         parent::__construct($name);
-        $this->_equipment = new Collection();
+        $this->equipment = new Collection();
     }
 
     /**
@@ -24,7 +22,7 @@ class CompositeEquipment extends Equipment
      */
     public function power()
     {
-        return $this->_equipment->reduce(function ($acc, Equipment $equipment) {
+        return $this->equipment->reduce(function ($acc, Equipment $equipment) {
             return $acc + $equipment->power();
         }, 0);
     }
@@ -34,7 +32,7 @@ class CompositeEquipment extends Equipment
      */
     public function netPrice()
     {
-        return $this->_equipment->reduce(function ($acc, Equipment $equipment) {
+        return $this->equipment->reduce(function ($acc, Equipment $equipment) {
             return $acc + $equipment->netPrice();
         }, 0);
     }
@@ -44,7 +42,7 @@ class CompositeEquipment extends Equipment
      */
     public function discountPrice()
     {
-        return $this->_equipment->reduce(function ($acc, Equipment $equipment) {
+        return $this->equipment->reduce(function ($acc, Equipment $equipment) {
             return $acc + $equipment->discountPrice();
         }, 0);
     }
@@ -55,7 +53,7 @@ class CompositeEquipment extends Equipment
      */
     public function add(Equipment $equipment)
     {
-        $this->_equipment->push($equipment);
+        $this->equipment->push($equipment);
     }
 
     /**
@@ -64,7 +62,7 @@ class CompositeEquipment extends Equipment
      */
     public function remove(Equipment $equipment)
     {
-        $this->_equipment = $this->_equipment->reject(function (Equipment $item) use ($equipment) {
+        $this->equipment = $this->equipment->reject(function (Equipment $item) use ($equipment) {
             return $item === $equipment;
         });
     }

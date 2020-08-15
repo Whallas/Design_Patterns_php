@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\StructuralPatterns\Composite;
 
 use Tightenco\Collect\Support\Collection;
